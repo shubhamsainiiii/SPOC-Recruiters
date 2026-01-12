@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0f172a; /* Slate 900 - Main Dark Color */
+  --color-accent: #3b82f6; /* Blue 500 - Main Highlight Color */
+  --color-secondary: #334155; /* Slate 700 - Sub-text/Secondary elements (Derived from Primary) */
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+  font-family: var(--font-sans);
+}
