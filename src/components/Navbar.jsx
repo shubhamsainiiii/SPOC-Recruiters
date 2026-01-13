@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Code, Briefcase, Users, Mail, Home } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -10,10 +10,10 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: 'Home', path: '/', icon: <Home size={20} /> },
-    { name: 'Services', path: '/services', icon: <Code size={20} /> },
-    { name: 'About', path: '/about', icon: <Users size={20} /> },
-    { name: 'Contact', path: '/contact', icon: <Mail size={20} /> },
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -23,9 +23,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary flex items-center gap-2">
-              <Briefcase className="text-accent" />
-              <span>SPOC Recruiters</span>
+            <Link to="/" className="text-2xl font-bold text-primary">
+              SPOC Recruiters
             </Link>
           </div>
           
@@ -35,13 +34,12 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? 'text-accent bg-blue-50'
                     : 'text-gray-700 hover:text-accent hover:bg-gray-50'
                 }`}
               >
-                {link.icon}
                 {link.name}
               </Link>
             ))}
@@ -74,13 +72,12 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-3 rounded-md text-base font-medium ${
+                  className={`px-3 py-3 rounded-md text-base font-medium ${
                     isActive(link.path)
                       ? 'text-accent bg-blue-50'
                       : 'text-gray-700 hover:text-accent hover:bg-gray-50'
                   }`}
                 >
-                  {link.icon}
                   {link.name}
                 </Link>
               ))}
